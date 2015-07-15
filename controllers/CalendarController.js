@@ -7,8 +7,11 @@ var fs = require("fs");
 module.exports = {
 	
 	getTestTemplate: function (req, res) {
-		fs.readFile(path.join(__dirname, 'templates', 'template1.xlsx'), function(err, data) {
-
+		fs.readFile('./files/templates/t1.xlsx', function(err, data) {
+			if(err) {
+				res.end();
+				return;
+			}
 		    // Create a template
 		    var template = new XlsxTemplate(data);
 
@@ -18,10 +21,10 @@ module.exports = {
 		    // Set up some placeholder values matching the placeholders in the template
 		    var values = {
 		            extractDate: new Date(),
-		            dates: new Date("2013-06-01"), new Date("2013-06-02"), new Date("2013-06-03"),
-		            people: [
-		                {name: "John Smith", age: 20},
-		                {name: "Bob Johnson", age: 22}
+		            dates: new Date("2013-06-01"),
+		            planData: [
+		                {name: "John Smith", days: 20, role: 'admin'},
+		                {name: "Bob Johnson", days: 22, role: 'user'}
 		            ]
 		        };
 
@@ -32,7 +35,13 @@ module.exports = {
 		    var data = template.generate();
 
 		    // ...
-
+	
+			fs.writeFileSync('./files/myOutput.xlsx', data, 'binary');
+			res.download('./files/myOutput.xlsx',function(err){
+				console.log(err, 2);
+				res.end();
+			});
+		    
 		});
 	},
 

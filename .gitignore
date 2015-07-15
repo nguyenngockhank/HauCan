@@ -1,4 +1,5 @@
 .idea
 node_modules/*
 !node_modules/sequelize-restful
+!node_modules/xlsx-template/xlsx-template/lib
 client/bower_components
