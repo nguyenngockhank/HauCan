@@ -1,0 +1,35 @@
+<div class="header-panel shadow-z-2">
+
+ <i id="openSidebar" class="mdi-action-view-headline"></i>
+  <div class="container">
+      <a href="#" id="web-logo" class="pull-left">
+      	<img class="img-responsive" src="./assets/img/logo.png">
+      </a>
+      <h1 style="margin-left: 20px" class="pull-left"> Solider Manager </h1>
+  </div>
+  
+</div>
+
+
+<sidebar button-class="#openSidebar">
+    <sidebar-item>
+      <h2 class="ui header inverted">
+        <div class="content">
+          Sidebar
+          <div class="sub header">Links and items</div>
+        </div>
+      </h2>
+    </sidebar-item>
+    <sidebar-link icon="home" title="home"></sidebar-link>
+    
+    <sidebar-item-group title="other">
+      <sidebar-link title="contact"></sidebar-link>
+      <sidebar-link title="download"></sidebar-link>
+    </sidebar-item-group>
+  </sidebar>
+  
+
+
+
+
+<div ui-view="main-content"></div>

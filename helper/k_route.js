@@ -29,7 +29,7 @@ module.exports = {
         
         var last_char = path.slice(-1);
         if(last_char != '/') {
-            last_char += '/';
+            path += '/';
         }
         
         for (var func in controller) {

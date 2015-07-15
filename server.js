@@ -8,12 +8,20 @@ var db = require('./models');
 var fs = require('fs');
 var k_route = require('./helper/k_route.js');
 
-
 var app = express();
 app.set('port', process.env.PORT || 3000);
+
+
+process.env.TMPDIR =path.join(__dirname, 'temp');
+
+app.use(express.static(__dirname + '/client'));
+
+
 app.use(restful(db.sequelize, { endpoint: '/api/restful'}));
 
 eval(fs.readFileSync('./route.js')+'');
+
+
 db.sequelize
 .authenticate()
 .then(function(err) {

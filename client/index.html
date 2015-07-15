@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <title update-title> SOLIDER MANAGER </title>
+        <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./assets/css/font-awesome.min.css">
+        <link rel="stylesheet" href="./assets/css/semantic.min.css">
+
+        <link rel="stylesheet" href="./bower_components/angular-bootstrap/ui-bootstrap-csp.css">
+        <link rel="stylesheet" href="./bower_components/bootstrap-material-design/dist/css/material.min.css">
+
+
+        <link href="./assets/css/style.css" rel="stylesheet">
+
+		<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
+		<!-- <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css"/> -->
+		<!-- <link rel="stylesheet" href="assets/app.css"/> -->
+    </head>
+
+    <body>
+		<!-- ROOT -->
+		<div ui-view="root"></div>
+		<!-- END ROOT VIEW -->
+		
+
+		<script src="./bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="./lib/bootstrap.min.js"></script>
+		<script src="./bower_components/bootstrap-material-design/dist/js/material.min.js"></script>
+
+
+		<script src="./bower_components/angular/angular.min.js"></script>
+		<script src="./bower_components/angular-animate/angular-animate.min.js"></script>
+		<script src="./bower_components/angular-aria/angular-aria.min.js"></script>
+		<!-- <script src="./bower_components/angular-material/angular-material.min.js"></script> -->
+		
+		<script src="./lib/semantic.min.js"></script>
+		<script src="./bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+		<script src="./lib/sidebar.js"></script>
+
+		<script src="lib/angular-ui-router.min.js"></script>	
+		<script src="lib/restangular.min.js"></script>
+		<script src="lib/angular-local-storage.min.js"></script>
+		<script src="lib/lodash.compat.min.js"></script>
+	
+
+		<script src="js/app.js"></script>
+		<script src="common/directives/common.js"></script>
+		
+		<!--MODUDLES-->
+		<script src="modules/haucan/haucan.js"></script>
+		<script src="modules/haucan/services.js"></script>
+		<script src="modules/haucan/controllers/controllers.js"></script>
+		<!--END MODUDLES-->
+
+		<!--SERVICE--> 
+		<script src="js/services.js"></script>
+	</body>
+</html>

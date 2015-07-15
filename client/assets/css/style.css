@@ -1,0 +1,25 @@
+body {
+    background-image: url("../img/bg.png");
+    background-repeat: repeat;
+}
+.header-panel {
+  background-color: #004D40;
+  height: 144px;
+  position: relative;
+  z-index: 3;
+  color: white;
+}
+#web-logo img{
+    height: 144px;
+}
+#web-wrapper{
+    background-color: white;
+}
+#openSidebar{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#openSidebar:hover{
+    cursor: pointer;
+}
