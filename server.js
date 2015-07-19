@@ -6,11 +6,14 @@ var bodyParser = require('body-parser');
 var restful = require('sequelize-restful');
 var db = require('./models');
 var fs = require('fs');
-var k_route = require('./helper/k_route.js');
+var k_route = require('./udf/k_route.js');
 
 var app = express();
 app.set('port', process.env.PORT || 3000);
 
+
+app.use(bodyParser.json({limit: '100mb'}));
+app.use(bodyParser.urlencoded({limit: '100mb', extended: true}));
 
 process.env.TMPDIR =path.join(__dirname, 'temp');
 

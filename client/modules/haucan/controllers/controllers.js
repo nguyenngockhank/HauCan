@@ -1,22 +1,20 @@
-angular.module( "app.haucan.controllers", [
+angular.module( "app.modules.haucan.controllers", [
+    "app.modules.haucan.controllers.thucpham",
+    "app.modules.haucan.controllers.monan",
 ])
+.controller("HaucanController", function ($scope, donviOption) {
+	$scope.option = { 
+		donvi : donviOption,
+		localLang: {
+			reset           : "Reset",
+	        selectAll       : "Chọn hết",
+	        selectNone      : 'Chọn thực phẩm',
+	        search          : "Tìm kiếm",
+	        nothingSelected : "Chọn thực phẩm" 
+	    }
+	};
 
-.controller("HaucanController", function ($scope) {
-    console.log(123123)
 })
 .controller("HaucanHomeController", function ($scope) {
-	$scope.toggleLeft = function(){
-		
-	}
 
-	  $scope.singleModel = 1;
-
-  $scope.radioModel = 'Middle';
-
-  $scope.checkModel = {
-    left: false,
-    middle: true,
-    right: false
-  };
-    console.log(1231232)
 });

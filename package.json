@@ -17,6 +17,7 @@
     "mysql": "^2.7.0",
     "sequelize": "^1.7.10",
     "sequelize-transactions": "^1.0.1",
+    "squel": "^3.9.1",
     "xlsx-template": "0.0.2"
   }
 }

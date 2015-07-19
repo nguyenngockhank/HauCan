@@ -1,0 +1,55 @@
+<h2> Danh sách món ăn </h2>
+<form name="mainForm" novalidate>
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th width="20%">Tên món ăn</th>
+      <th width="60%">Thực phẩm</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+  	 <!-- ROW EDIT / ADD -->
+    <tr>
+      <td scope="row">0</td>
+      <td><input ng-class="{'invalid': mainForm.name.$invalid}" name="name" required ng-model="monan.model.ten" class="form-control" placeholder="Tên" type="text"></td>
+      <td>
+        <isteven-multi-select    
+          input-model="listthucpham"    
+          output-model="monan.model.thucphams"
+          orientation="horizontal" 
+          translation="option.localLang"
+          button-label="icon ten"
+          item-label="icon ten"
+          helper-elements="filter"
+          tick-property="ticked"></isteven-multi-select>
+      </td>
+      <td>
+        <button ng-if="gui.mode != 'edit'" ng-click="monan.add()" class="btn btn-sm btn-success"><i class="fa fa-save"></i></button>
+
+      <div ng-if="gui.mode == 'edit'" class="btn-group" role="group" aria-label="...">
+         <button ng-click="monan.edit()" class="btn btn-sm btn-success"> <i class="fa fa-save"></i></button>
+        <button class="btn btn-sm btn-default" ng-click="monan.reset()"><i class="fa fa-remove"></i></button>
+      </div>
+       
+      </td>
+    </tr>
+    <!--END ROW EDIT / ADD -->
+
+
+  	<!-- LIST ROW ITEM -->
+    <tr ng-repeat="item in listmonan" ng-class="{info: item.selected}" >
+      <th scope="row">{{$index + 1}}</th>
+      <td>{{item.ten}}</td>
+      <td>{{item.display_thucphams}}</td>
+      <td>
+      <div class="btn-group" role="group" ng-if="!item.selected">
+        <button type="button" class="btn btn-sm btn-primary" ng-click="monan.select_edit(item)"><i class="fa fa-pencil"></i></button>
+        <button type="button" class="btn btn-sm btn-danger" ng-click="monan.remove(item)"><i class="fa fa-remove"></i></button>
+      </div>
+      </td>
+    </tr>
+    <!-- ROW LIST ROW ITEM -->
+  </tbody>
+</table>

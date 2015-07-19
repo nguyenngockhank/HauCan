@@ -12,7 +12,8 @@ function sidebar() {
     restrict: 'E',
     replace: true,
     transclude: true,
-    template: '<div class="ui inverted left vertical sidebar menu" ' +
+    //ui inverted labeled icon left inline vertical sidebar menu uncover visible
+    template: '<div class="ui inverted labeled left vertical sidebar menu icon" ' +
                     'ng-transclude></div>',
     scope: {
       buttonClass: '@'

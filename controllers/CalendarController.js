@@ -6,6 +6,19 @@ var fs = require("fs");
 
 module.exports = {
 	
+	getMonan: function(req,res){
+		db.monan.find({
+			include: [
+				{ model: db.thucpham , as: 'thucphams'},
+			]
+		}).success(function(result){
+			res.json({'status':'success', row:result});
+		})
+		.error(function(error){
+			res.json(500, {"status": "error", "message": error});
+		});
+	},
+
 	getTestTemplate: function (req, res) {
 		fs.readFile('./files/templates/t1.xlsx', function(err, data) {
 			if(err) {

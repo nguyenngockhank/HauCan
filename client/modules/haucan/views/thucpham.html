@@ -1,0 +1,53 @@
+
+<h2> Danh sách thực phẩm </h2>
+<form name="mainForm" novalidate>
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Tên thực phẩm</th>
+      <th>Đơn giá</th>
+      <th>Đơn vị</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>  
+    <!-- ROW EDIT / ADD -->
+    <tr>
+      <td scope="row">0</td>
+      <td><input ng-class="{'invalid': mainForm.name.$invalid}" name="name" required ng-model="thucpham.model.ten" class="form-control" placeholder="Tên" type="text"></td>
+      <td><input ng-class="{'invalid': mainForm.dongia.$invalid}" name="dongia" required ng-model="thucpham.model.dongia" class="form-control"  placeholder="Đơn giá" type="number" min="0" step="1000"></td>
+      <td><select class="form-control" name="donvi"
+              ng-model="thucpham.model.donvi"
+              ng-options="item.code as item.title for item in option.donvi">
+      </select></td>
+      <td>
+        <button ng-if="thucpham.mode != 'edit'" ng-click="thucpham.add()" class="btn btn-sm btn-success"><i class="fa fa-save"></i></button>
+
+      <div ng-if="thucpham.mode == 'edit'" class="btn-group" role="group" aria-label="...">
+         <button ng-click="thucpham.edit()" class="btn btn-sm btn-success"> <i class="fa fa-save"></i></button>
+        <button class="btn btn-sm btn-default" ng-click="thucpham.reset()"><i class="fa fa-remove"></i></button>
+      </div>
+       
+      </td>
+    </tr>
+    <!--END ROW EDIT / ADD -->
+
+
+    <!-- LIST ROW ITEM -->
+    <tr ng-repeat="item in listthucpham" ng-class="{info: item.selected}" >
+      <th scope="row">{{$index + 1}}</th>
+      <td>{{item.ten}}</td>
+      <td>{{item.dongia | currency:"":0}}</td>
+      <td>{{item.donvi}}</td>
+      <td>
+      <div class="btn-group" role="group" ng-if="!item.selected">
+        <button type="button" class="btn btn-sm btn-primary" ng-click="thucpham.select_edit(item)"><i class="fa fa-pencil"></i></button>
+        <button type="button" class="btn btn-sm btn-danger" ng-click="thucpham.remove(item)"><i class="fa fa-remove"></i></button>
+      </div>
+      </td>
+    </tr>
+    <!-- ROW LIST ROW ITEM -->
+  </tbody>
+</table>
+ </form>

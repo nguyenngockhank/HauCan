@@ -2,6 +2,16 @@ body {
     background-image: url("../img/bg.png");
     background-repeat: repeat;
 }
+.table>tbody>tr>td, .table>tbody>tr>th{
+  vertical-align: middle;
+}
+.navbar{
+  margin-bottom: 0;
+}
+#main-content .container {
+  padding-top: 20px;
+  background-color: white;
+}
 .header-panel {
   background-color: #004D40;
   height: 144px;
@@ -15,6 +25,9 @@ body {
 #web-wrapper{
     background-color: white;
 }
+#search-input{
+  padding-left: 15px;
+}
 #openSidebar{
   position: absolute;
   top: 0;
@@ -23,3 +36,26 @@ body {
 #openSidebar:hover{
     cursor: pointer;
 }
+
+.form-control.ng-invalid {
+  background-image: linear-gradient(#f44336,#f44336),linear-gradient(#d2d2d2,#d2d2d2);
+}
+
+.multiSelect > button {
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid #c6c6c6;
+  position: relative;
+  top: -5px;
+  height: 18px;
+}
+
+/*.buttonClicked > button{
+  border-bottom: 2px solid #00aa9a;;
+}*/
+
+.multiSelect .clearButton {
+  right: 0px;
+  top: 2px;
+}
+

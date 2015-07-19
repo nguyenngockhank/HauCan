@@ -10,26 +10,37 @@
         <link rel="stylesheet" href="./assets/css/semantic.min.css">
 
         <link rel="stylesheet" href="./bower_components/angular-bootstrap/ui-bootstrap-csp.css">
+
         <link rel="stylesheet" href="./bower_components/bootstrap-material-design/dist/css/material.min.css">
+          <link href="./bower_components/bootstrap-material-design/dist/css/material-fullpalette.min.css" rel="stylesheet">
+<!--         <link href="./bower_components/bootstrap-material-design/dist/css/roboto.min.css" rel="stylesheet">
+	    <link href="./bower_components/bootstrap-material-design/dist/css/ripples.min.css" rel="stylesheet"> -->
+        
+        <link rel="stylesheet" href="./bower_components/angular-toastr/dist/angular-toastr.min.css" />
+        <link rel="stylesheet" href="./bower_components/angular-multi-select/isteven-multi-select.css">
 
 
-        <link href="./assets/css/style.css" rel="stylesheet">
 
-		<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
+
+        
+		<!-- <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'> -->
 		<!-- <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css"/> -->
 		<!-- <link rel="stylesheet" href="assets/app.css"/> -->
+
+		<link href="./assets/css/style.css" rel="stylesheet">
     </head>
 
     <body>
+    	
 		<!-- ROOT -->
 		<div ui-view="root"></div>
 		<!-- END ROOT VIEW -->
 		
-
+		<!-- BOOTSTRAP -->
 		<script src="./bower_components/jquery/dist/jquery.min.js"></script>
 		<script src="./lib/bootstrap.min.js"></script>
 		<script src="./bower_components/bootstrap-material-design/dist/js/material.min.js"></script>
-
+		<!-- END BOOTSTRAP -->
 
 		<script src="./bower_components/angular/angular.min.js"></script>
 		<script src="./bower_components/angular-animate/angular-animate.min.js"></script>
@@ -45,18 +56,26 @@
 		<script src="lib/restangular.min.js"></script>
 		<script src="lib/angular-local-storage.min.js"></script>
 		<script src="lib/lodash.compat.min.js"></script>
-	
+		<script src="./bower_components/angular-toastr/dist/angular-toastr.tpls.min.js"></script>
+		<script src="./bower_components/angular-multi-select/isteven-multi-select.js"></script>
 
-		<script src="js/app.js"></script>
-		<script src="common/directives/common.js"></script>
 		
-		<!--MODUDLES-->
+		
+		
+		
+		<script src="js/app.js"></script>
+		<script src="js/modules.js"></script>
+		<script src="js/directives.js"></script>
+		<script src="js/values.js"></script>
+		<script src="js/services.js"></script>
+
+		<!--MODUDLE HAUCAN -->
 		<script src="modules/haucan/haucan.js"></script>
 		<script src="modules/haucan/services.js"></script>
 		<script src="modules/haucan/controllers/controllers.js"></script>
-		<!--END MODUDLES-->
+		<script src="modules/haucan/controllers/ThucphamController.js"></script>
+		<script src="modules/haucan/controllers/MonanController.js"></script>
+		<!--END MODUDLE HAUCAN-->
 
-		<!--SERVICE--> 
-		<script src="js/services.js"></script>
 	</body>
 </html>

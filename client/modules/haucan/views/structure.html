@@ -1,0 +1,40 @@
+<div class="navbar navbar-default">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" ui-sref="haucan.home"><i class="fa fa-diamond"></i> Hậu Cần</a>
+  </div>
+  <div class="navbar-collapse collapse navbar-responsive-collapse">
+    <ul class="nav navbar-nav">
+      <li><a href="javascript:void(0)"><i class="fa fa-calendar"></i> Thực đơn tuần </a></li>
+      <li class="dropdown">
+        <a href="http://fezvrasta.github.io/bootstrap-material-design/bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cutlery"></i> Nhà bếp <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a ui-sref="modules.haucan.thucpham">Thực phẩm</a></li>
+          <li><a ui-sref="modules.haucan.monan">Món ăn</a></li>
+          <li class="dropdown-header">Dropdown header</li>
+          <li><a href="javascript:void(0)">Thực đơn tuần</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="http://fezvrasta.github.io/bootstrap-material-design/bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-book"></i> Báo cáo <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li class="dropdown-header">Ngày</li>
+          <li><a href="javascript:void(0)">Thực phẩm</a></li>
+          <li><a href="javascript:void(0)">Món ăn</a></li>
+          <li class="dropdown-header">Tuần</li>
+          <li><a href="javascript:void(0)">Thực đơn tuần</a></li>
+        </ul>
+      </li>
+    </ul>
+    <form class="navbar-form navbar-right">
+      <input id="search-input" type="text" class="form-control col-lg-8" placeholder="Tìm kiếm">
+    </form>
+  </div>
+</div>
+<div class="container" style="background-color: white">
+  <div id="main-content" ui-view="main-content"></div>
+</div>
