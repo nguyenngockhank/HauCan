@@ -1,6 +1,7 @@
 angular.module( "app.modules.haucan.controllers", [
     "app.modules.haucan.controllers.thucpham",
     "app.modules.haucan.controllers.monan",
+    "app.modules.haucan.controllers.thucdon",
 ])
 .controller("HaucanController", function ($scope, donviOption) {
 	$scope.option = { 

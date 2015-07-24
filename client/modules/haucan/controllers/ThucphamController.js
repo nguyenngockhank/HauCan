@@ -1,7 +1,7 @@
 angular.module( "app.modules.haucan.controllers.thucpham", [])
 .controller("HaucanThucphamController", function ($scope, AlertService, HaucanService,STR_ALERT) {
     
-    HaucanService.thucpham.all().then(function(response){
+    HaucanService.thucpham.all('ten').then(function(response){
         $scope.listthucpham = response.data;
     });
 
@@ -28,8 +28,10 @@ angular.module( "app.modules.haucan.controllers.thucpham", [])
         },
         // submit to server
         edit: function(){
-            if($scope.mainForm.$invalid)
+            if($scope.mainForm.$invalid){
+                AlertService.missField();
                 return;
+            }
 
             var obj = angular.copy(this.model);
             delete obj.id;
@@ -47,9 +49,11 @@ angular.module( "app.modules.haucan.controllers.thucpham", [])
 
         },
         add: function(){
-            if($scope.mainForm.$invalid)
+            if($scope.mainForm.$invalid){
+                AlertService.missField();
                 return;
-            HaucanService.thucpham.save($scope.thucpham.model).then(function(response){
+            }
+            HaucanService.thucpham.add($scope.thucpham.model).then(function(response){
                 if(response.status == 'success') {
                     $scope.listthucpham.push(response.data)
                     $scope.thucpham.reset();

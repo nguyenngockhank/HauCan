@@ -54,4 +54,17 @@ angular.module("app.modules.haucan", [
             }
         }
     })
+     // THUC DON
+    .state("modules.haucan.thucdon", {
+        url: "/haucan/thucdon",
+        data: {
+            pageTitle: 'Hậu cần - Thực đơn'
+        },
+        views: {
+            "main-content": {
+                templateUrl: "modules/haucan/views/thucdon.html",
+                controller: "HaucanThucdonController"
+            }
+        }
+    })
 })

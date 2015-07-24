@@ -5,7 +5,12 @@ module.exports = function(sequelize, DataTypes){
             primaryKey: true,
             autoIncrement: true
         },
-        ten: DataTypes.STRING(100),
+        ten: {
+            type: DataTypes.STRING(100),
+            validate:{
+                notEmpty: true
+            } 
+        }
     },{
         tableName: 'monan', 
         createdAt: 'created_time',

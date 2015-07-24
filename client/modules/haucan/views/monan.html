@@ -13,11 +13,11 @@
   	 <!-- ROW EDIT / ADD -->
     <tr>
       <td scope="row">0</td>
-      <td><input ng-class="{'invalid': mainForm.name.$invalid}" name="name" required ng-model="monan.model.ten" class="form-control" placeholder="Tên" type="text"></td>
+      <td><input ng-class="{'invalid': mainForm.name.$invalid}" name="name" required ng-model="gui.model.ten" class="form-control" placeholder="Tên" type="text"></td>
       <td>
         <isteven-multi-select    
           input-model="listthucpham"    
-          output-model="monan.model.thucphams"
+          output-model="gui.model.thucphams"
           orientation="horizontal" 
           translation="option.localLang"
           button-label="icon ten"
@@ -30,7 +30,7 @@
 
       <div ng-if="gui.mode == 'edit'" class="btn-group" role="group" aria-label="...">
          <button ng-click="monan.edit()" class="btn btn-sm btn-success"> <i class="fa fa-save"></i></button>
-        <button class="btn btn-sm btn-default" ng-click="monan.reset()"><i class="fa fa-remove"></i></button>
+        <button class="btn btn-sm btn-default" ng-click="gui.reset()"><i class="fa fa-remove"></i></button>
       </div>
        
       </td>
@@ -45,7 +45,7 @@
       <td>{{item.display_thucphams}}</td>
       <td>
       <div class="btn-group" role="group" ng-if="!item.selected">
-        <button type="button" class="btn btn-sm btn-primary" ng-click="monan.select_edit(item)"><i class="fa fa-pencil"></i></button>
+        <button type="button" class="btn btn-sm btn-primary" ng-click="gui.select_edit(item)"><i class="fa fa-pencil"></i></button>
         <button type="button" class="btn btn-sm btn-danger" ng-click="monan.remove(item)"><i class="fa fa-remove"></i></button>
       </div>
       </td>

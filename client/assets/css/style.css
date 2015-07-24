@@ -2,6 +2,30 @@ body {
     background-image: url("../img/bg.png");
     background-repeat: repeat;
 }
+.box_scroll {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
+    /*position: fixed;*/
+    overflow-y: scroll;
+}
+
+.box_scroll::-webkit-scrollbar {
+    -webkit-appearance: none;
+    background-color: rgba(0,0,0, .15);
+    width: 8px;
+    height: 8px;
+}
+
+.box_scroll::-webkit-scrollbar-thumb {
+    border-radius: 0;
+    background-color: rgba(0,0,0, .4);
+}
+.search_input {
+  padding-left: 15px;
+}
+
 .table>tbody>tr>td, .table>tbody>tr>th{
   vertical-align: middle;
 }
@@ -58,4 +82,9 @@ body {
   right: 0px;
   top: 2px;
 }
-
+.editable-wrap .editable-controls>input, 
+.editable-wrap .editable-controls>select, 
+.editable-wrap .editable-controls>textarea {
+  position: relative;
+  top: 10px;
+}

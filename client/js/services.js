@@ -4,42 +4,25 @@ angular.module('app.modules.services', [
 
 	var instanceService = {};
 
-	var base= {
-		success: function(action, item_name){
+	var base = function(action){
+		this.action = action;
+		this.success = function(item_name){
 			var item_name = 'item' || item_name;
-			toastr.success(action + ' '+ item_name + ' successfully !!!', 'Success');
-		},
-		error: function(action, item_name) {
+			toastr.success(this.action + ' '+ item_name + ' thành công !!!', 'Success');
+		};
+		this.error = function(item_name) {
 			var item_name = 'item' || item_name;
-			toastr.error('Fail to ' + action +  ' ' + item_name + ' !!!', 'Error');
-		}
-	} ;
-
-	instanceService.add= {
-		success: function(item_name){
-			base.success('Add', item_name)
-		},
-		error: function(item_name){
-			base.error('add', item_name)
-		}
+			toastr.error(this.action +  ' ' + item_name + ' thất bại !!!', 'Error');
+		};
 	}
+	instanceService.add = new base('Thêm');
+	instanceService.edit = new base('Sửa');
+	instanceService.remove = new base('Xóa');
 
-	instanceService.edit = {
-		success: function(item_name){
-			base.success('Edit', item_name)
-		},
-		error: function(item_name){
-			base.error('edit', item_name)
-		}
-	} 
+	instanceService.missField = function() {
+		toastr.warning('Nhập thiếu trường !!!', 'Warning');
+	};
 
-	instanceService.remove = {
-		success: function(item_name){
-			base.success('Remove', item_name)
-		},
-		error: function(item_name){
-			base.error('remove', item_name)
-		}
-	}
+	
 	return instanceService;
 });

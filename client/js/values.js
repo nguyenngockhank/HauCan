@@ -11,13 +11,17 @@ angular.module("app.values", [])
 ])
 .value("restInstance", function(restApi, module_name) {
   var instance = {
-    all: function(){
-      return restApi.one( module_name + '' ).get();
+    all: function(order){
+      if(!order)
+        order = '';
+      else 
+        order = '?order='+order;
+      return restApi.one( module_name + '' + order ).get();
     },
     get: function(id) {
       return restApi.one( module_name + '/' + id).get();
     },
-    save: function(data) {
+    add: function(data) {
       return restApi.all('' + module_name).post(data);
     },
     edit: function(id, data){

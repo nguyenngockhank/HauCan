@@ -1,0 +1,69 @@
+<h2 class="text-center"> Thực đơn tuần (từ ngày
+ <a href="#" editable-date="gui.start_date" onaftersave="action.changeStartDate()">
+    {{ (gui.start_date | date:"dd/MM/yyyy") || 'empty' }}
+  </a>
+  tới {{gui.end_date | date:"dd/MM/yyyy" }})</h2>
+
+
+<div class="col-lg-2">
+
+<div class="panel panel-default">
+    <div class="panel-heading text-center">
+      <strong> Món ăn </strong>
+    </div>
+    <div class="panel-body" style="padding: 0;">
+     <div><input class="form-control search-input" ng-model="searchMonan" placeholder="Tìm món ăn"></div>
+
+     <div class="box_scroll" style="max-height: 200px">
+      <table class="table">
+        <tbody>
+          <tr ng-repeat="item in listmonan | filter: searchMonan" >
+            <td ng-click="action.chooseMonan(item)">{{item.ten}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+  <div class="panel panel-primary">
+    <div class="panel-heading text-center">
+      <strong> Thực phẩm </strong>
+    </div>
+    <div class="panel-body" style="padding: 0;">
+     <div><input class="form-control search-input" ng-model="searchThucpham" placeholder="Tìm thực phẩm"></div>
+
+     <div class="box_scroll" style="max-height: 200px">
+      <table class="table">
+        <tbody>
+          <tr ng-repeat="item in listthucpham | filter: searchThucpham" >
+            <td ng-click="action.chooseThucpham(item)" >{{item.ten}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="col-lg-10">
+  <table class="table table-bordered">
+    <thead class="text-center">
+      <tr>
+        <th>#</th>
+        <th ng-repeat="item in gui.arr_thu">{{item}}</th>
+      </tr>
+    </thead>
+    <tbody>
+     <tr ng-repeat="data_ngay in gui.data">
+      <th>{{gui.arr_buoi[$index]}}</th>
+      <td class="thucdon-item" ng-class="{success: item.selected }" ng-repeat="item in data_ngay">
+        {{item.display}}
+        <a ng-if="!item.selected" ng-click="action.selectLich(item)"><i class="fa fa-search"></i> Chọn món</a>
+        <a ng-if="item.selected" ng-click="action.unselectLich(item)"><i class="fa fa-save"></i> Chọn xong</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+

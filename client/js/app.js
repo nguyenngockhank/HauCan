@@ -7,13 +7,14 @@ angular.module('app', [
     'ui.bootstrap',
     'angularify.semantic.sidebar',
     'isteven-multi-select',
+    'xeditable',
 
 	'app.directives',
 	'app.values',
     'app.modules'
 ])
-.run(function ($rootScope) {
-
+.run(function ($rootScope, editableOptions) {
+	 editableOptions.theme = 'bs3';
 })
 .config(function (RestangularProvider, localStorageServiceProvider, $stateProvider) {
 	
