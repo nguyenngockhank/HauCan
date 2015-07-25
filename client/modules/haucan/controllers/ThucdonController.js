@@ -16,36 +16,47 @@ angular.module( "app.modules.haucan.controllers.thucdon", [
             lich.thucdon.push({type: type, id: item.id, item: item});
             console.log(lich.thucdon)
         };
-        this.isExistThucdon = function(type, item) {
+        this.isExistInThucdon = function(type, item) {
             var lich = $scope.action.last_lich;
             var index = _.findIndex(lich.thucdon , {type: type, id: item.id});
             return (index >= 0) ;
         };
 
-        this.setDisplayLich = function(){
-            var lich = $scope.action.last_lich;
-            var arr = _.sortBy(lich.thucdon, 'type');
-            var str = '';
-            arr.forEach(function(item){
-                str += item.ten + '\n';
-            });
-            lich.display = str;
-        };
         return this;
     })();
 
     $scope.action = {
-        last_lich : {},
+        last_lich : null,
+        last_lich_db: null,
     	selectLich: function(item) {
-            this.last_lich.selected = false;
+            if(this.last_lich!=null)
+                this.last_lich.selected = false;
+
             this.last_lich = item;
             this.last_lich.selected =true;
+
+            /* */
             var index = _.findIndex($scope.list_lichan , {buoi: item.buoi, ngay: item.ngay});
-            console.log(item, $scope.list_lichan)
-            console.log(index)
+            if(index > -1)
+                this.last_lich_db = $scope.list_lichan[index];
     	},
     	unselectLich: function(item) {
     		item.selected = false;
+            this.last_lich = null;
+            if(this.last_lich_db !=null) {
+                // prepare model to send to server
+                var model = {id: this.last_lich_db.id, thucdon: []};
+                item.thucdon.forEach(function (value) {
+                    model.thucdon.push({type: value.type, id: value.id})
+                })
+
+                // send to server
+                console.log('SEND TO SERVERR')
+                HaucanService.thucdon.save(model).then(function(response){
+
+                });
+
+            }
     	},
         changeStartDate: function(){
             console.log('CHANGE')
@@ -54,26 +65,24 @@ angular.module( "app.modules.haucan.controllers.thucdon", [
             $scope.gui.initData();
             HaucanService.lichan.search($scope.gui.start_date).then(function(response){
                 $scope.list_lichan = response.data;
-                $scope.list_lichan.forEach(function(data){
-                    data.ngay =  dbDateFormat(new Date(data.ngay));
-                })
+                // $scope.list_lichan.forEach(function(data){
+                //     data.ngay =  dbDateFormat(new Date(data.ngay));
+                // })
             });
         },
         chooseThucpham: function(thucpham){
-            \\
-            var exists = processAction.isExistThucdon('thucpham', thucpham);
+            if(this.last_lich == null) return;
+            var exists = processAction.isExistInThucdon('thucpham', thucpham);
             if(!exists) {
                 processAction.addThucdon('thucpham', thucpham);
-                processAction.setDisplayLich();
             }
 
         },
         chooseMonan: function(monan){
-
-            var exists = processAction.isExistThucdon('monan', monan);
+            if(this.last_lich == null) return;
+            var exists = processAction.isExistInThucdon('monan', monan);
             if(!exists) {
                 processAction.addThucdon('monan', monan);
-                processAction.setDisplayLich();
             }
         }
     }
@@ -126,6 +135,7 @@ angular.module( "app.modules.haucan.controllers.thucdon", [
 		    this.initData();
             HaucanService.lichan.search(this.start_date).then(function(response){
                 $scope.list_lichan = response.data;
+                console.log('LIST LICH AN', $scope.list_lichan)
                 $scope.list_lichan.forEach(function(data){
                     data.ngay =  dbDateFormat(new Date(data.ngay));
                 })

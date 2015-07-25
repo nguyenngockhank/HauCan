@@ -4,7 +4,7 @@ var fs = require('fs'),
     useTransaction = require('sequelize-transactions');
 	
 var lodash = require('lodash'),
-    sequelize = new Sequelize('haucan', 'root', 'root', {
+    sequelize = new Sequelize('haucan', 'root', '', {
         host: 'localhost',
         port: 3306,
         maxConcurrentQueries: 100,

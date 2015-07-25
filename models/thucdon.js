@@ -1,25 +1,24 @@
 module.exports = function(sequelize, DataTypes){
-    var lichan = sequelize.define('lichan',{
+    var thucdon = sequelize.define('thucdon',{
         id: {
             type: DataTypes.INTEGER(11),
             primaryKey: true,
             autoIncrement: true
         },
-        buoi: DataTypes.INTEGER(1),
+        lich_id: DataTypes.INTEGER(11),
+        thucpham_id: DataTypes.INTEGER(11),
+        monan_id: DataTypes.INTEGER(11)
     },{
-        tableName: 'lichan', 
+        tableName: 'thucpham', 
         createdAt: 'created_time',
         updatedAt: 'updated_time',
         deletedAt: 'deleted_time',
         paranoid: true,
         classMethods: {
             associate: function(models) {
-                lichan.hasMany(models.thucdon, {
-                    as: 'thucdons',
-                    foreignKey: 'lich_id'
-                });
+            
             }
         }
     });
-    return lichan;
+    return thucdon;
 };

@@ -58,9 +58,11 @@
      <tr ng-repeat="data_ngay in gui.data">
       <th>{{gui.arr_buoi[$index]}}</th>
       <td class="thucdon-item" ng-class="{success: item.selected }" ng-repeat="item in data_ngay">
-        {{item.display}}
-        <a ng-if="!item.selected" ng-click="action.selectLich(item)"><i class="fa fa-search"></i> Chọn món</a>
-        <a ng-if="item.selected" ng-click="action.unselectLich(item)"><i class="fa fa-save"></i> Chọn xong</a>
+        <ul class="list-unstyled thucdon">
+        <li ng-repeat="td in item.thucdon"> {{td.item.ten}} </li>
+        <li ng-if="!item.selected" ><a ng-click="action.selectLich(item)"><i class="fa fa-search"></i> Chọn món</a></li>
+        <li ng-if="item.selected && item.thucdon.length > 0" ><a ng-click="action.unselectLich(item)"><i class="fa fa-save"></i> Chọn xong</a></li>
+        </ul>
       </td>
     </tr>
   </tbody>

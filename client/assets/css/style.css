@@ -88,3 +88,11 @@ body {
   position: relative;
   top: 10px;
 }
+
+.thucdon{
+  margin-bottom: 0;   
+}
+.thucdon li {
+  padding: 7px 3px;
+  border-bottom: 1px solid #ccc;
+}

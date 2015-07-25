@@ -9,15 +9,19 @@ angular.module('app.modules.haucan.services', [
 	haucanApi = Restangular.all('haucan'), 
 	thucphamApi = {}, 
 	monanApi = {},
-    lichanApi = {};
+    lichanApi = {},
+    thucdonApi = {}
+    ;
 	angular.extend(thucphamApi , restInstance(restApi, 'thucpham'));
 	angular.extend(monanApi , restInstance(restApi, 'monan'));
     angular.extend(lichanApi , restInstance(restApi, 'lichan'));
+    angular.extend(thucdonApi , restInstance(restApi, 'thucdon'));
 
 	var instanceService = {
 		thucpham: thucphamApi,
 		monan: monanApi,
-        lichan: lichanApi
+        lichan: lichanApi,
+        thucdon: thucdonApi
 	};
 
     /*
@@ -83,6 +87,12 @@ angular.module('app.modules.haucan.services', [
         var str_start = dbDateFormat(start_date);
         var instanceApi = haucanApi.one("list_lichan");
         return instanceApi.get({start_date: str_start});
+    }
+
+
+    thucdonApi.save = function(model) {
+        var instanceApi = haucanApi.all("thucdon/save");
+        return instanceApi.post({'data' : model});
     }
 
 	return instanceService;
